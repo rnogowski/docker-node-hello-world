@@ -12,5 +12,5 @@ spec:
         templatename: kittytemplate
     spec:
       containers:
-        - image: rnogowski/test
+        - image: rnogowski/test:0.1
           name: tdo-btp-hello-world      
