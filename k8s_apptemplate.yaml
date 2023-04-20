@@ -12,5 +12,5 @@ spec:
         templatename: kittytemplate
     spec:
       containers:
-        - image: cacoco/kitty
-          name: mykittyapp        
+        - image: rnogowski/test
+          name: TDOBTPHelloWorld       
