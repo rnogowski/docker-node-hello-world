@@ -13,4 +13,4 @@ spec:
     spec:
       containers:
         - image: rnogowski/test
-          name: TDOBTPHelloWorld       
+          name: tdo-btp-hello-world      
