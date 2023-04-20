@@ -10,3 +10,7 @@ spec:
     metadata:
       labels:
         templatename: kittytemplate
+    spec:
+      containers:
+        - image: cacoco/kitty
+          name: mykittyapp        
