@@ -1,0 +1,12 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kittyapp
+spec:
+  selector:
+    matchLabels:
+      templatename: kittytemplate
+  template:
+    metadata:
+      labels:
+        templatename: kittytemplate
