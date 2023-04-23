@@ -9,8 +9,29 @@ spec:
   template:
     metadata:
       labels:
+        app: my-app      
         templatename: kittytemplate
     spec:
       containers:
         - image: rnogowski/test:0.1
-          name: tdo-btp-hello-world      
+          name: tdo-btp-hello-world   
+          ports:
+            - name: http
+              containerPort: 4000
+              protocol: TCP          
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kittyapp
+  labels:
+        templatename: kittytemplate
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 4000
+      targetPort: 4000
+      protocol: TCP
+      name: kittyapp-service
+  selector:
+    app: my-app    
