@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: kittyapp
+  name: tdoappdeployment
 spec:
   selector:
     matchLabels:
-      templatename: kittytemplate
+      templatename: tdotemplate
   template:
     metadata:
       labels:
         app: my-app      
-        templatename: kittytemplate
+        templatename: tdotemplate
     spec:
       containers:
         - image: rnogowski/test:0.1
@@ -23,15 +23,15 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: kittyapp
+  name: tdoappdeploymentservice
   labels:
-        templatename: kittytemplate
+        templatename: tdotemplate
 spec:
   type: LoadBalancer
   ports:
     - port: 4000
       targetPort: 4000
       protocol: TCP
-      name: kittyapp-service
+      name: tdo-service
   selector:
     app: my-app    
