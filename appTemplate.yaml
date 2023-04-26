@@ -14,11 +14,12 @@ spec:
     spec:
       containers:
         - image: rnogowski/testdev:0.1
-          name: tdo-btp-hello-world-dev   
+          name: tdo-btp-hello-world-dev 
           ports:
             - name: http
               containerPort: 4000
               protocol: TCP          
+          imagePullPolicy: Always
 ---
 apiVersion: v1
 kind: Service
