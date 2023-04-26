@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tdoappdeploymentdev
+spec:
+  selector:
+    matchLabels:
+      templatename: tdotemplatedev
+  template:
+    metadata:
+      labels:
+        app: my-app-dev      
+        templatename: tdotemplatedev
+    spec:
+      containers:
+        - image: rnogowski/testdev:0.1
+          name: tdo-btp-hello-world-dev 
+          ports:
+            - name: http
+              containerPort: 4000
+              protocol: TCP          
+          imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tdoappdeploymentservicedev
+  labels:
+        templatename: tdotemplatedev
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 4000
+      targetPort: 4000
+      protocol: TCP
+      name: tdo-service-dev
+  selector:
+    app: my-app-dev  
