@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: tdoappdeployment
 spec:
+  replicas: 3
   selector:
     matchLabels:
       templatename: tdotemplate
@@ -18,7 +19,8 @@ spec:
           ports:
             - name: http
               containerPort: 4000
-              protocol: TCP          
+              protocol: TCP   
+          imagePullPolicy: Always                     
 ---
 apiVersion: v1
 kind: Service
